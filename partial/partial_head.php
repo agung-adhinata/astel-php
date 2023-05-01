@@ -3,5 +3,7 @@
 ?>
 
 <head>
-  <?= include ROOT_DIR . '/partial/partial_head_headless.php'; ?>
+  <?php
+  include ROOT_DIR . '/partial/partial_head_headless.php'
+  ?>
 </head>

@@ -10,6 +10,6 @@ class Template
 
   public static function headlessHead(String $title, String $description)
   {
-    require ROOT_DIR . '/partial/partial_head.php';
+    require ROOT_DIR . '/partial/partial_head_headless.php';
   }
 }
