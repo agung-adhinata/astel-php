@@ -10,10 +10,15 @@ switch ($request) {
   case '/':
     require ROOT_DIR . '/views/home.php';
     break;
+  case '/dev':
+    require ROOT_DIR . '/views/devui.php';
+    break;
+
   case '/login':
     Template::generateHead("Login", "halaman login");
     echo "halaman login";
     break;
+
   default:
     echo "404 not found";
     break;
