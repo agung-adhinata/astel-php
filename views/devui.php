@@ -1,9 +1,5 @@
 <html>
 
-<?php
-$css_src = ROOT_DIR . '/style/main.css';
-?>
-
 <head>
   <?php
   Template::headlessHead("Development UI", "dev place for testing ui capabilities");

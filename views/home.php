@@ -1,10 +1,8 @@
 <?php
 
-$head = Template::generateHead("my title", "my description");
-
 ?>
 <html>
-<?= $head ?>
+<?php Template::generateHead("my title", "my description"); ?>
 
 <body>
   <h1> This is homepage of my app </h1>
