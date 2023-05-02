@@ -1,15 +1,20 @@
 <?php
-
 class Template
 {
 
-  public static function generateHead(String $title, String $description)
+  /**
+   * create head properties with `<head>` tag
+   */
+  public static function generateHead(string $title, string $description): mixed
   {
-    require ROOT_DIR . '/partial/partial_head.php';
+    return require ROOT_DIR . '/partial/partial_head.php';
   }
 
-  public static function headlessHead(String $title, String $description)
+  /**
+   * create head properties without `<head>` tag, very usefull
+   */
+  public static function headlessHead(string $title, string $description): mixed
   {
-    require ROOT_DIR . '/partial/partial_head_headless.php';
+    return require ROOT_DIR . '/partial/partial_head_headless.php';
   }
 }
