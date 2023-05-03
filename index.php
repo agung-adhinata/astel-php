@@ -2,23 +2,28 @@
 
 require_once './config.php';
 require_once './partial/Template.php';
+require_once './dbconn.php';
 
+$db = new DbConnect();
+$_base_url = '/astel-php';
 $request = $_SERVER['REQUEST_URI'] ?? "";
+
 switch ($request) {
-  case '':
-  case '/':
+  case $_base_url . '':
+  case $_base_url . '/':
     require ROOT_DIR . '/views/home.php';
     break;
-  case '/dev':
+  case $_base_url . '/dev':
     require ROOT_DIR . '/views/devui.php';
     break;
 
-  case '/login':
+  case $_base_url . '/login':
     Template::generateHead("Login", "halaman login");
     echo "halaman login";
     break;
 
   default:
     echo "404 not found";
+    echo $request;
     break;
 }
