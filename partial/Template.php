@@ -9,7 +9,6 @@ class Template
   {
     return require ROOT_DIR . '/partial/partial_head.php';
   }
-
   /**
    * create head properties without `<head>` tag, very usefull
    */
