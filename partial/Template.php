@@ -12,8 +12,13 @@ class Template
   /**
    * create head properties without `<head>` tag, very usefull
    */
-  public static function headlessHead(string $title, string $description): mixed
+  public static function headlessHeadCooked(string $title, string $description): mixed
+  {
+    return require ROOT_DIR . '/partial/partial_head_headless.php';
+  }
+  public static function headlessHeadRaw(): mixed
   {
     return require ROOT_DIR . '/partial/partial_head_headless.php';
   }
 }
+
