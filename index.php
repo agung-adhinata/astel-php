@@ -18,7 +18,7 @@ switch ($request) {
     break;
 
   case $_base_url . '/login':
-    Template::generateHead("Login", "halaman login");
+    Template::getHead("Login", "halaman login");
     echo "halaman login";
     break;
 

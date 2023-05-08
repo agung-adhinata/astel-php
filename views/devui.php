@@ -2,7 +2,7 @@
 
 <head>
   <?php
-  Template::headlessHeadCooked("Development UI", "dev place for testing ui capabilities");
+  Template::getHeadlessHead("Development UI", "dev place for testing ui capabilities");
   ?>
   <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
