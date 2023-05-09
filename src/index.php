@@ -5,7 +5,7 @@ require_once './partial/Template.php';
 require_once './dbconn.php';
 
 $db = new DbConnect();
-$_base_url = '/astel-php';
+$_base_url = ENV["BASE_URL"] ?? '';
 $request = $_SERVER['REQUEST_URI'] ?? "";
 
 switch ($request) {
@@ -23,7 +23,7 @@ switch ($request) {
     break;
 
   default:
-    echo "404 not found";
+    echo "404 not found\n";
     echo $request;
     break;
 }

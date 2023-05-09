@@ -1,15 +1,11 @@
 <?php
+require_once './config.php';
 class DbConnect
 {
   public $instance;
   function __construct()
   {
-    $env = parse_ini_file('.env');
-    $this->instance = mysqli_connect($env['DB_HOSTNAME'], $env['DB_USER'], $env['DB_PASS'], $env['DB_NAME']);
-    if ($this->instance->connect_errno) {
-      echo 'failed to connect to MySQL, ' . $this->instance->connect_error;
-      exit();
-    }
+    $this->instance = mysqli_connect(ENV['DB_HOSTNAME'], ENV['DB_USER'], ENV['DB_PASS'], ENV['DB_NAME']);
   }
   function query(string $query)
   {
