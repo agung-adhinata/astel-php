@@ -7,7 +7,9 @@ require_once './dbconn.php';
 $db = new DbConnect();
 $_base_url = ENV["BASE_URL"] ?? '';
 $request = $_SERVER['REQUEST_URI'] ?? "";
+# echo $request
 
+# router app
 switch ($request) {
   case $_base_url . '':
   case $_base_url . '/':
