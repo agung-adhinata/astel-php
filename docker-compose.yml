@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  php-apache-env:
+    build:
+      context: .
+      dockerfile: docker/php.DockerFile
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 8000:80
+  mysql-db:
+    container_name: mysql
+    image: mysql
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=astel
+      - MYSQL_USER=astel
+      - MYSQL_PASSWORD=astel
+    ports:
+      - 9906:3306
