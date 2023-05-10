@@ -1,5 +1,9 @@
 # Access index.php only
 
+Options -MultiViews
 RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.\*)$ index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
