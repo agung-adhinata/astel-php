@@ -1,0 +1,4 @@
+DB_HOSTNAME="localhost"
+DB_NAME="astel"
+DB_USER="astel"
+DB_PASS="astel"
