@@ -4,7 +4,7 @@ require_once './config.php';
 require_once './controller/Template.php';
 require_once './dbconn.php';
 
-$db = new DbConnect();
+
 $_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";
 # echo $request

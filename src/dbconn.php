@@ -2,7 +2,7 @@
 require_once './config.php';
 class DbConnect
 {
-  public $instance;
+  public mysqli $instance;
   function __construct()
   {
     $this->instance = mysqli_connect(ENV['DB_HOSTNAME'], ENV['DB_USER'], ENV['DB_PASS'], ENV['DB_NAME']);
@@ -16,3 +16,5 @@ class DbConnect
     return null;
   }
 }
+
+$mysql_db = new DbConnect();
