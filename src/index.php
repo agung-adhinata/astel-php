@@ -1,11 +1,11 @@
 <?php
 
 require_once './config.php';
-require_once './partial/Template.php';
+require_once './controller/Template.php';
 require_once './dbconn.php';
 
 $db = new DbConnect();
-$_base_url = ENV["BASE_URL"] ?? '';
+$_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";
 # echo $request
 
@@ -20,8 +20,18 @@ switch ($request) {
     break;
 
   case $_base_url . '/login':
-    Template::getHead("Login", "halaman login");
-    echo "halaman login";
+    require ROOT_DIR . '/views/login.php';
+    break;
+
+  case $_base_url . '/register':
+    echo "Register Page";
+    break;
+  case $_base_url . '/dash':
+    echo "Register Page";
+    break;
+
+  case $_base_url . '/dash/lists':
+    echo "Register Page";
     break;
 
   default:
