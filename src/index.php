@@ -2,7 +2,10 @@
 
 require_once './config.php';
 require_once './controller/Template.php';
+require_once './controller/Auth.php';
+require_once './controller/User.php';
 require_once './dbconn.php';
+
 
 
 $_base_url = ENV["BASE_URL"] ?? "";
