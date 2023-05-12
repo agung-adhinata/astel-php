@@ -3,6 +3,7 @@ $message = "";
 if (isset($_POST['submitBtn'])) {
   $input = $_POST['email'];
   $message = 'Your email is' . $input;
+  Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
 }
 ?>
 <html>
