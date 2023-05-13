@@ -3,7 +3,10 @@ $message = "";
 if (isset($_POST['submitBtn'])) {
   $input = $_POST['email'];
   $message = 'Your email is' . $input;
-  Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
+  $status = Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
+  if ($status == true)
+    header("Location: " . URL . '/dev');
+
 }
 ?>
 <html>

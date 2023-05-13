@@ -15,8 +15,10 @@ class Auth
       $res = mysqli_fetch_array($result);
       if ($res['password'] == $password) {
         $_SESSION['email'] = $res['id'];
-        header("Location: " . URL . '/dev');
+        return true;
       }
+      return false;
     }
+
   }
 }
