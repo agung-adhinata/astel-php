@@ -5,7 +5,11 @@ class Auth
 {
   static function register(mysqli $db, string $email, string $name, string $password)
   {
-    $db->query("INSERT INTO user(email, name, password) values({$email}, {$name}, {$password})");
+
+    if ($result = $db->query("INSERT INTO user(email, name, password) values({$email}, {$name}, {$password})")) {
+      return true;
+    }
+    return false;
   }
   static function login(mysqli $db, string $email, string $password)
   {
