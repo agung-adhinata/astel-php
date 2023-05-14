@@ -11,14 +11,22 @@
 	--p-6: 1.5rem;
 	--p-7: 1.75rem;
 	--p-8: 2rem;
+
+	--color-background: #fdfcfa;
+	--color-on-background: #0f2335;
+	--color-btn-primary: #0f2335;
+	--color-btn-on-primary: var(--color-background);
+	--color-btn-secondary: #cce5df;
+	--color-btn-on-secondary: var(--color-on-background);
+	--color-accent: #bf2659;
 }
 html {
 	font-size: 100%;
 }
 
 body {
-	background-color: white;
-	color: #000000;
+	background-color: var(--color-background);
+	color: var(--color-on-background);
 	line-height: 1.75;
 	font-family: var(--font-sans);
 }
@@ -82,7 +90,9 @@ input[type="password"],
 input[type="number"] {
 	border: solid black 1.5px;
 	border-radius: 0.25rem;
-	padding: 0.25rem;
+	padding: 0.25rem 0.5rem;
+	color: var(--color-on-background);
+	background: var(--color-btn-secondary);
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -90,21 +100,53 @@ input[type="password"]:focus,
 input[type="number"]:focus {
 	outline: solid #000 1.5px;
 }
-button {
+
+@keyframes clicked {
+	0% {
+		transform: translateY(-2px);
+	}
+	50% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-2px);
+	}
+}
+
+button,
+.btn {
 	font-family: var(--font-mono);
 	position: relative;
 	text-align: center;
 	cursor: pointer;
-	background-color: black;
-	color: white;
+	background-color: var(--color-btn-primary);
+	color: var(--color-btn-on-primary);
 	padding: 4px 8px;
-	transition-property: transform;
+	transition-property: transform, box-shadow;
 	transition-duration: 100ms;
 	transition-timing-function: ease-in-out;
+	border-radius: var(--p-2);
+	border: solid 1.5px var(--color-background);
 }
-button:hover {
-	transform: translateY(-4px);
+.btn-secondary {
+	background-color: var(--color-btn-secondary);
+	color: var(--color-btn-on-secondary);
 }
-button:focus {
-	transform: translate(0);
+
+button:hover,
+.btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 40px -10px var(--color-btn-primary);
+}
+button:active,
+.btn:active {
+	animation-name: clicked;
+	animation-duration: 200ms;
+}
+
+@media (hover: none) {
+	button:active,
+	.btn:active {
+		animation: none;
+	}
 }

@@ -1,36 +1,70 @@
-<?php
-$message = "";
-if (isset($_POST['submitBtn'])) {
-  $input = $_POST['email'];
-  $message = 'Your email is' . $input;
-  $status = Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
-  if ($status == true)
-    header("Location: " . URL . '/dev');
-
-}
-?>
 <html>
 
 <head>
   <?php
   Template::getHeadlessHead("Login - Astel", "Login form");
   ?>
+  <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 
-<body>
+<body class="bg-pattern">
   <?= $message ?>
-  <h1>Login form</h1>
-  <form login" method="post">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" />
-    </div>
-    <div>
-      <label for="pass">Password</label>
-      <input type="password" name="pass" id="pass">
-    </div>
-    <button type="submit" name="submitBtn">Login</button>
-  </form>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100dvh;
+      background-image: url("../assets/doodle.png");
+      background-size: 500px 500px;
+      background-repeat: repeat;
+    }
+
+    body>.form-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100dvh;
+      background-color: var(--color-background);
+      padding: 0 50px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: fit-content;
+      min-width: 300px;
+      gap: var(--p-2);
+    }
+
+    form>section {
+      display: flex;
+      flex-direction: row;
+      gap: var(--p-4);
+    }
+
+    form>section>label {
+      flex-grow: 1;
+      text-align: end;
+    }
+  </style>
+  <section class="form-wrapper">
+    <h1>Login form</h1>
+    <form method="post">
+      <section>
+        <label for="email">Email</label>
+        <input type="email" required name="email" id="email" />
+      </section>
+      <section>
+        <label for="pass">Password</label>
+        <input type="password" required name="pass" id="pass">
+      </section>
+      <button type="submit" name="submitBtn">Login</button>
+      <a class="btn btn-secondary" href=<?= get_base_url() . '/register' ?>>Create new account?</a>
+    </form>
+  </section>
 </body>
 
 </html>
