@@ -24,11 +24,11 @@ switch ($request) {
     break;
 
   case $_base_url . '/login':
-    View::login();
+    View::login($_db);
     break;
 
   case $_base_url . '/register':
-    View::register();
+    View::register($_db);
     break;
 
   case $_base_url . '/dash':
