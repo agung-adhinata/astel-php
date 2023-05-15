@@ -9,7 +9,27 @@
 </head>
 
 <body>
-  <h1> This is homepage of my app </h1>
+  <style>
+    .hero {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .hero>.child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <section class="hero">
+    <div class="child">
+      <h1> Astel App </h1>
+    </div>
+    <div class="child">
+      <h1> Astel 2 </h1>
+    </div>
+  </section>
 </body>
 
 </html>
