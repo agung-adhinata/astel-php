@@ -1,0 +1,16 @@
+body {
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+main {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	flex-grow: 1;
+}
+
+aside > nav {
+	display: flex;
+	flex-direction: column;
+}
