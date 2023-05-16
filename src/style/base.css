@@ -12,13 +12,13 @@
 	--p-7: 1.75rem;
 	--p-8: 2rem;
 
-	--color-background: #fafdfe;
-	--color-on-background: #03151b;
-	--color-btn-primary: #13799a;
-	--color-btn-on-primary: var(--color-background);
-	--color-btn-secondary: #e4f6fc;
+	--color-background: #f3ede8;
+	--color-on-background: #17110c;
+	--color-btn-primary: #afd5c1;
+	--color-btn-on-primary: var(--color-on-background);
+	--color-btn-secondary: #eae0d7;
 	--color-btn-on-secondary: var(--color-on-background);
-	--color-accent: #1480a3;
+	--color-accent: #43305a;
 }
 html {
 	font-size: 100%;
@@ -197,9 +197,20 @@ button,
 	border-radius: var(--p-2);
 	border: solid 1.5px var(--color-background);
 }
+.btn-square {
+	min-width: 5em;
+	max-width: fit-content;
+	min-height: 5em;
+	aspect-ratio: 1/1;
+	flex-grow: 0;
+}
 .btn-secondary {
 	background-color: var(--color-btn-secondary);
 	color: var(--color-btn-on-secondary);
+}
+.btn-outline {
+	background-color: var(--color-background);
+	color: var(--color-on-background);
 }
 
 button:hover,

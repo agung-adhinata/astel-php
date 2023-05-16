@@ -13,5 +13,6 @@
   href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;1,6..12,400;1,6..12,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
   rel="stylesheet" />
 <link rel="stylesheet" href="style/base.css" type="text/css" />
-<link rel="stylesheet" href="style/main.css" type="text/css" />
+<link rel="stylesheet" href="style/component.css" type="text/css" />
+<link rel="stylesheet" href="style/utility.css" type="text/css" />
 <script src="https://kit.fontawesome.com/7cecb05bd1.js" crossorigin="anonymous"></script>

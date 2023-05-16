@@ -1,0 +1,7 @@
+.card-list {
+	padding: 1rem;
+	max-height: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}

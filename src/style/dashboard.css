@@ -10,6 +10,22 @@ main {
 	flex-grow: 1;
 }
 
+main > .content {
+	flex-direction: column;
+	width: 100%;
+	padding: 1em;
+}
+
+header {
+	padding: 1em 3em;
+	background-color: var(--color-on-background);
+	color: var(--color-background);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
 aside > nav {
 	display: flex;
 	flex-direction: column;

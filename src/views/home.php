@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <?php Template::getHeadlessHead("my title", "my description"); ?>
+  <?php Template::getHeadlessHead("Astel App", "my description"); ?>
 
 </head>
 
@@ -12,12 +12,13 @@
   <style>
     body {
       background-color: var(--color-background);
+      width: 100%;
     }
 
     .hero {
       display: flex;
       flex-direction: column;
-      width: 100vw;
+      width: 100%;
       align-items: center;
       min-height: 100svh;
     }
@@ -30,12 +31,10 @@
       flex-grow: 2;
     }
 
-    .child:last-child {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: row;
+    .child.btns {
+      max-width: 300px;
+      flex-direction: column;
       gap: 0.5em;
-
     }
   </style>
   <section class="hero">
@@ -43,7 +42,7 @@
       <h1> Astel App <i class="fa-solid fa-wallet"></i></h1>
       <p> Personal Finance Manager </p>
     </div>
-    <div class="child">
+    <div class="child btns">
       <a href=<?= get_base_url() . '/login' ?> class="btn">
         Login
       </a>

@@ -13,16 +13,32 @@
   ?>
   <main>
     <aside>
-      <nav>
-        <a href=<?= get_base_url() . '/app/' ?>>Overview</a>
-        <a href=<?= get_base_url() . '/app/transaction' ?>>Transactions</a>
-        <a href=<?= get_base_url() . '/app/report' ?>>Report</a>
-        <a href=<?= get_base_url() . '/app/settings' ?>>Settings</a>
-      </nav>
+      <section class="card-list">
+        <a class="btn btn-secondary " href=<?= get_base_url() . '/app/add' ?>>
+          <i class="fa-solid fa-plus"></i>
+          Tambah Keuangan
+        </a>
+        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/report' ?>>
+          <i class="fa-solid fa-book"></i>
+          Laporan
+        </a>
+        </button>
+        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/account' ?>>
+          <i class="fa-solid fa-user"></i>
+          Akun
+        </a>
+        <a class="btn btn-secondary" href=<?= get_base_url() . '/login' ?>>
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Log out
+        </a>
+      </section>
     </aside>
-    <h1>
-      Dashboard section
-    </h1>
+    <div class="content">
+      <h1>
+        Dashboard
+      </h1>
+
+    </div>
   </main>
   <footer>
     <h2>
