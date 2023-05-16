@@ -1,10 +1,6 @@
 <?php
 
-require_once './config.php';
-require_once './controller/Template.php';
-require_once './controller/Auth.php';
-require_once './controller/User.php';
-require_once './dbconn.php';
+require_once 'config.php';
 
 $_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";

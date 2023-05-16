@@ -63,6 +63,7 @@ $message = '';
   <section class="form-wrapper">
     <h1>Login form
     </h1>
+    <p></p>
     <form action=<?= get_base_url() . '/api/login.php' ?> method="post">
       <section>
         <label for="email">Email</label>

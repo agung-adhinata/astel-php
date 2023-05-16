@@ -1,10 +1,4 @@
 <?php
-if (isset($_POST['submitBtn'])) {
-  // $status = Auth::register($_db->instance, $_POST['email'], $_POST['name'], $_POST['pass']);
-  $status = true;
-  if ($status == true)
-    header("Location: " . URL . '/dev');
-}
 ?>
 <html>
 
@@ -57,7 +51,7 @@ if (isset($_POST['submitBtn'])) {
   <section class="form-wrapper">
     <h1>Create New Account</h1>
     <p>just pressing few clicks</p>
-    <form action="" method="post">
+    <form action=<?= get_base_url() . '/api/register.php' ?> method="post">
       <section>
         <label for="email">Email</label>
         <input type="email" required name="email" id="email" />
