@@ -1,8 +1,8 @@
 <?php
 
-class User
+class Account
 {
-  function createUser(mysqli $db, string $email, string $password, string $nama)
+  function createAccount(mysqli $db, string $email, string $password, string $nama, string $role)
   {
     if (
       $result = $db->query("SELECT email FROM user WHERE email LIKE '{$email}'")
@@ -31,5 +31,9 @@ class User
         return true;
     }
     return false;
+  }
+  function deleteAccount(mysqli $db, string $user_id)
+  {
+
   }
 }

@@ -23,6 +23,5 @@ class Auth
       }
       return false;
     }
-
   }
 }
