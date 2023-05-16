@@ -4,7 +4,6 @@ require_once './config.php';
 require_once './controller/Template.php';
 require_once './controller/Auth.php';
 require_once './controller/User.php';
-require_once './controller/View.php';
 require_once './dbconn.php';
 
 
@@ -17,26 +16,26 @@ $request = $_SERVER['REQUEST_URI'] ?? "";
 switch ($request) {
   case $_base_url . '':
   case $_base_url . '/':
-    View::index();
+    require ROOT_DIR . '/views/home.php';
     break;
   case $_base_url . '/dev':
     require ROOT_DIR . '/views/devui.php';
     break;
 
   case $_base_url . '/login':
-    View::login($_db);
+    require ROOT_DIR . '/views/login.php';
     break;
 
   case $_base_url . '/register':
-    View::register($_db);
+    require ROOT_DIR . '/views/register.php';
     break;
 
-  case $_base_url . '/dash':
-    echo "Register Page";
+  case $_base_url . '/app':
+    require ROOT_DIR . '/views/dashboard.php';
     break;
 
-  case $_base_url . '/dash/lists':
-    echo "Register Page";
+  case $_base_url . '/app/transacitons':
+    echo "Transaciton Page";
     break;
 
   default:
