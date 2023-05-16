@@ -1,5 +1,10 @@
 <?php
-
+if (isset($_POST['submitBtn'])) {
+  // $status = Auth::register($_db->instance, $_POST['email'], $_POST['name'], $_POST['pass']);
+  $status = true;
+  if ($status == true)
+    header("Location: " . URL . '/dev');
+}
 ?>
 <html>
 
@@ -7,6 +12,7 @@
   <?php
   Template::getHeadlessHead("Register - Astel", "Register form");
   ?>
+
 </head>
 
 <body>
@@ -17,7 +23,6 @@
       justify-content: center;
       align-items: center;
       min-height: 100dvh;
-      background-color: var(--color-on-background);
     }
 
     body>section.form-wrapper {
@@ -26,7 +31,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100dvh;
-      background-color: white;
+      background-color: var(--color-background);
       padding: 0 50px;
     }
 

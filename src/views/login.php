@@ -1,10 +1,18 @@
+<?php
+$message = '';
+if (isset($_POST['submitBtn'])) {
+  // $status = Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
+  $status = true;
+  if ($status == true)
+    header("Location: " . URL . '/app');
+}
+?>
 <html>
 
 <head>
   <?php
   Template::getHeadlessHead("Login - Astel", "Login form");
   ?>
-  <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 
 <body class="bg-pattern">
@@ -14,6 +22,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      width: 100%;
       align-items: center;
       min-height: 100dvh;
       background-image: url("../assets/doodle.png");
@@ -49,6 +58,13 @@
       flex-grow: 1;
       text-align: end;
     }
+
+    @media screen and (max-width: 600px) {
+      .form-wrapper {
+        min-width: 100%;
+
+      }
+    }
   </style>
   <section class="form-wrapper">
     <h1>Login form</h1>
@@ -61,6 +77,10 @@
         <label for="pass">Password</label>
         <input type="password" required name="pass" id="pass">
       </section>
+      <div class="flex items-center" style="gap:0.5em">
+        <input type="checkbox" name="remember" value="true" id="remember">
+        <label for="remember">Remember password</label>
+      </div>
       <button type="submit" name="submitBtn">Login</button>
       <a class="btn btn-secondary" href=<?= get_base_url() . '/register' ?>>Create new account?</a>
     </form>
