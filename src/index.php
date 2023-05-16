@@ -6,8 +6,6 @@ require_once './controller/Auth.php';
 require_once './controller/User.php';
 require_once './dbconn.php';
 
-
-
 $_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";
 # echo $request
@@ -39,7 +37,5 @@ switch ($request) {
     break;
 
   default:
-    echo "404 not found\n";
-    echo $request;
     break;
 }

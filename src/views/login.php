@@ -1,11 +1,5 @@
 <?php
 $message = '';
-if (isset($_POST['submitBtn'])) {
-  // $status = Auth::login($_db->instance, $_POST['email'], $_POST['pass']);
-  $status = true;
-  if ($status == true)
-    header("Location: " . URL . '/app');
-}
 ?>
 <html>
 
@@ -67,8 +61,9 @@ if (isset($_POST['submitBtn'])) {
     }
   </style>
   <section class="form-wrapper">
-    <h1>Login form</h1>
-    <form method="post">
+    <h1>Login form
+    </h1>
+    <form action=<?= get_base_url() . '/api/login.php' ?> method="post">
       <section>
         <label for="email">Email</label>
         <input type="email" required name="email" id="email" />

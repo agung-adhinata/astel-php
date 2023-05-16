@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 function get_base_url()
 {
   return sprintf(
