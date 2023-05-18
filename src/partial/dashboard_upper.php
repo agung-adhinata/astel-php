@@ -23,7 +23,6 @@ if (isset($_SESSION['user_id'])) {
       <section class="card-list">
         <a class="btn btn-secondary " href=<?= get_base_url() . '/app/add' ?>>
           <i class="fa-regular fa-rectangle-list"></i>
-
           Keuangan
         </a>
         <a class="btn btn-secondary" href=<?= get_base_url() . '/app/report' ?>>
