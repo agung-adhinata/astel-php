@@ -2,7 +2,7 @@
 require ROOT_DIR . '/partial/dashboard/upper.php';
 ?>
 <h1>
-  Keuangan
+  Admin
 </h1>
 <p>this is penjelasan</p>
 <?php

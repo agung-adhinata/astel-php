@@ -1,12 +1,12 @@
 <aside>
   <section class="card-list">
-    <a class="btn btn-secondary " href=<?= get_base_url() . '/app/admins' ?>>
+    <a class="btn btn-secondary " href=<?= get_base_url() . '/app/keuangan' ?>>
       <i class="fa-regular fa-rectangle-list"></i>
-      Admin
+      Keuangan
     </a>
-    <a class="btn btn-secondary" href=<?= get_base_url() . '/app/pengguna' ?>>
+    <a class="btn btn-secondary" href=<?= get_base_url() . '/app/report' ?>>
       <i class="fa-solid fa-book"></i>
-      Pengguna
+      Laporan
     </a>
     </button>
     <a class="btn btn-secondary" href=<?= get_base_url() . '/app/account' ?>>

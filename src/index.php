@@ -4,7 +4,7 @@ require_once 'config.php';
 
 $_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";
-# echo $request
+// echo $request;
 
 # router app
 switch ($request) {
@@ -28,11 +28,27 @@ switch ($request) {
     require ROOT_DIR . '/views/dashboard.php';
     break;
 
+  // Pengguna
   case $_base_url . '/app/keuangan':
-    require ROOT_DIR . '/views/keuangan.php';
+    require ROOT_DIR . '/views/pengguna/keuangan.php';
     break;
+
+
+  case $_base_url . '/app/report':
+    require ROOT_DIR . '/views/pengguna/report.php';
+    break;
+
+  case $_base_url . '/app/account':
+    require ROOT_DIR . '/views/dash_profile.php';
+    break;
+
+  // Admin
   case $_base_url . '/app/pengguna':
     require ROOT_DIR . '/views/admin/pengguna.php';
+    break;
+
+  case $_base_url . '/app/admins':
+    require ROOT_DIR . '/views/admin/admin.php';
     break;
 
   case $_base_url . '/app/akun':

@@ -12,13 +12,13 @@
 	--p-7: 1.75rem;
 	--p-8: 2rem;
 
-	--color-background: #f3ede8;
-	--color-on-background: #17110c;
-	--color-btn-primary: #afd5c1;
-	--color-btn-on-primary: var(--color-on-background);
-	--color-btn-secondary: #eae0d7;
+	--color-background: #e2eae1;
+	--color-on-background: #0b0f0b;
+	--color-btn-primary: #45475f;
+	--color-btn-on-primary: var(--color-background);
+	--color-btn-secondary: #eef2ed;
 	--color-btn-on-secondary: var(--color-on-background);
-	--color-accent: #43305a;
+	--color-accent: #231a1b;
 }
 html {
 	font-size: 100%;
@@ -95,7 +95,7 @@ input[type="email"],
 input[type="password"],
 input[type="date"],
 input[type="number"] {
-	border: solid black 1.5px;
+	border: solid var(--color-on-background) 1.5px;
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.5rem;
 	display: flex;
@@ -198,9 +198,11 @@ button,
 	border: solid 1.5px var(--color-background);
 }
 .btn-square {
-	min-width: 5em;
+	display: grid;
+	place-content: center;
+	min-width: 2em;
 	max-width: fit-content;
-	min-height: 5em;
+	min-height: 2em;
 	aspect-ratio: 1/1;
 	flex-grow: 0;
 }
@@ -210,6 +212,7 @@ button,
 }
 .btn-outline {
 	background-color: var(--color-background);
+	border: solid var(--color-accent) 0.15em;
 	color: var(--color-on-background);
 }
 

@@ -11,6 +11,7 @@
 <link
   href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;1,6..12,400;1,6..12,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
   rel="stylesheet" />
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 <link rel="stylesheet" href=<?= get_base_url() . "/style/reset.css" ?> type="text/css" />
 <link rel="stylesheet" href=<?= get_base_url() . "/style/base.css" ?> type="text/css" />
 <link rel="stylesheet" href=<?= get_base_url() . "/style/component.css" ?> type="text/css" />

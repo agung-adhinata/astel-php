@@ -21,7 +21,33 @@
     <h5>this is h5</h5>
     <div>plain text</div>
     <a href="#">links</a>
-    <code>Monospace text() </code>
+    <code>Monospace text()</code>
+    <section>
+      <div class="transaction-card">
+        <section class="header">
+          <small class="date">DATE: <span id="date">2022/08/02</span></small>
+          <small class="group">GROUP:<a id="group" href="#">DOMPET</a></small>
+          <small class="id">ID: <span id="id">19445678E</span></small>
+        </section>
+        <section class="info">
+        </section>
+        <section class="content h1">
+          <i class="fa-solid fa-arrow-up-right-dots"></i>
+          <span class="amount">IDR 50.000</span>
+        </section>
+        <section class="footer">
+          <span class="title h5">Hutank</span>
+          <span class="action">
+            <button class="btn-square btn-outline">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+            <button class="btn-square btn-outline">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </span>
+        </section>
+      </div>
+    </section>
     <section>
       <button>my button</button>
       <button class="btn-secondary">my button</button>

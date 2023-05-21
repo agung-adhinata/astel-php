@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id']) && isset($_SESSION['role'])) {
 } else {
   header("Location: " . URL . '/api/logout.php');
 }
@@ -19,25 +19,11 @@ if (isset($_SESSION['user_id'])) {
   require ROOT_DIR . '/partial/dashboard/header.php';
   ?>
   <main>
-    <aside>
-      <section class="card-list">
-        <a class="btn btn-secondary " href=<?= get_base_url() . '/app/keuangan' ?>>
-          <i class="fa-regular fa-rectangle-list"></i>
-          Keuangan
-        </a>
-        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/pengguna' ?>>
-          <i class="fa-solid fa-book"></i>
-          Laporan
-        </a>
-        </button>
-        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/account' ?>>
-          <i class="fa-solid fa-user"></i>
-          Akun
-        </a>
-        <a class="btn btn-secondary" href=<?= get_base_url() . '/api/logout.php' ?>>
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Log out
-        </a>
-      </section>
-    </aside>
+    <?php
+    if ($_SESSION['role'] == 0) {
+      require ROOT_DIR . '/partial/dashboard/sidebar_admin.php';
+    } else if ($_SESSION['role'] == 1) {
+      require ROOT_DIR . '/partial/dashboard/sidebar_pengguna.php';
+    }
+    ?>
     <div class="content">

@@ -5,3 +5,59 @@
 	flex-direction: column;
 	gap: 1em;
 }
+
+.transaction-card {
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	border: solid var(--color-on-background) 0.15em;
+	border-radius: 0.5em;
+	padding: var(--p-2);
+
+	& > .header {
+		min-width: 100%;
+		display: inherit;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	& > .header > .date,
+	& > .header > .group,
+	& > .header > .id {
+		flex-grow: 0;
+		opacity: 0.5;
+		font-weight: 600;
+		font-family: var(--font-mono);
+	}
+	& > .content {
+		display: flex;
+		min-width: 100%;
+		gap: 1em;
+		align-items: center;
+	}
+	& .title {
+		font-family: var(--font-mono);
+	}
+	& > .footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		& > .action {
+			display: inherit;
+			gap: 0.5em;
+		}
+	}
+	& > .info {
+		margin-bottom: 0.5em;
+		opacity: 0.5;
+		display: inherit;
+		justify-items: center;
+		justify-content: space-around;
+	}
+}
+
+.transaction-form {
+	display: flex;
+	& > section {
+		display: inherit;
+	}
+}
