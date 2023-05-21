@@ -16,16 +16,16 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
   <?php
-  require ROOT_DIR . '/partial/dashboard_header.php';
+  require ROOT_DIR . '/partial/dashboard/header.php';
   ?>
   <main>
     <aside>
       <section class="card-list">
-        <a class="btn btn-secondary " href=<?= get_base_url() . '/app/add' ?>>
+        <a class="btn btn-secondary " href=<?= get_base_url() . '/app/keuangan' ?>>
           <i class="fa-regular fa-rectangle-list"></i>
           Keuangan
         </a>
-        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/report' ?>>
+        <a class="btn btn-secondary" href=<?= get_base_url() . '/app/pengguna' ?>>
           <i class="fa-solid fa-book"></i>
           Laporan
         </a>

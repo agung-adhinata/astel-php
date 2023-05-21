@@ -28,7 +28,14 @@ switch ($request) {
     require ROOT_DIR . '/views/dashboard.php';
     break;
 
-  case $_base_url . '/app/transacitons':
+  case $_base_url . '/app/keuangan':
+    require ROOT_DIR . '/views/keuangan.php';
+    break;
+  case $_base_url . '/app/pengguna':
+    require ROOT_DIR . '/views/admin/pengguna.php';
+    break;
+
+  case $_base_url . '/app/akun':
     echo "Transaciton Page";
     break;
 

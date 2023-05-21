@@ -2,9 +2,9 @@
 require ROOT_DIR . '/partial/dashboard/upper.php';
 ?>
 <h1>
-  Dashboard
+  Keuangan
 </h1>
-<p>penjelasan</p>
+<p>this is penjelasan</p>
 <?php
 require ROOT_DIR . '/partial/dashboard/lower.php';
 ?>
