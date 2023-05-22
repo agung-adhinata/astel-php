@@ -39,7 +39,11 @@ switch ($request) {
     break;
 
   case $_base_url . '/app/account':
-    require ROOT_DIR . '/views/dash_profile.php';
+    if ($_SESSION['role'] == 0) {
+      require ROOT_DIR . '/views/admin/dash_profile.php';
+    } else {
+      require ROOT_DIR . '/views/dash_profile.php';
+    }
     break;
 
   // Admin
@@ -49,10 +53,6 @@ switch ($request) {
 
   case $_base_url . '/app/admins':
     require ROOT_DIR . '/views/admin/admin.php';
-    break;
-
-  case $_base_url . '/app/akun':
-    echo "Transaciton Page";
     break;
 
   default:

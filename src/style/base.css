@@ -213,6 +213,14 @@ button,
 	aspect-ratio: 1/1;
 	flex-grow: 0;
 }
+.btn-sidebar {
+	margin: 0;
+	/* border-radius: 0; */
+	border: 0;
+	padding: 1em 1.5em;
+	font-size: 1.125em;
+	text-align: left;
+}
 .btn-secondary {
 	background-color: var(--color-btn-secondary);
 	color: var(--color-btn-on-secondary);
@@ -230,12 +238,20 @@ button:focus,
 	transform: translateY(-2px);
 	box-shadow: 0 10px 40px -10px var(--color-btn-primary);
 }
+.btn-sidebar:hover {
+	transform: translateX(4px) translateY(0);
+	box-shadow: 10px 0px 40px -10px var(--color-btn-primary);
+}
+
 button:focus,
 .btn:focus {
 	outline: max(2px, 0.15em) solid var(--color-accent);
 	outline-offset: max(2px, 0.15em);
 }
-
+.btn-sidebar:focus {
+	outline: max(2px, 0.15em) solid var(--color-background);
+	outline-offset: max(2px, 0.15em);
+}
 button:active,
 .btn:active {
 	animation-name: clicked;

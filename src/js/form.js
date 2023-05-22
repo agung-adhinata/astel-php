@@ -9,10 +9,11 @@ function sendForm(url) {
 
 
 
-function editTransaction(id, title, description, amount, group, date) {
+function editTransaction(id, title, description, amount, group, date, is_income) {
   const parent = document.querySelector('form.transaction-form')
-  parent.querySelector('#id').innerHTML = id
-  parent.querySelector('#title').innerHTML = title
-  parent.querySelector('#description').innerHTML = description
-  parent.querySelector('#amount').innerHTML = amount
+  parent.querySelector('#id').value = id
+  parent.querySelector('#title').value = title
+  parent.querySelector('#description').value = description
+  parent.querySelector('#amount').value = amount
+  parent.querySelector('#type').value = is_income
 }
