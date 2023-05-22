@@ -11,7 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	/* max-width: 500px; */
-	border: solid var(--color-on-background) 0.15em;
+	border: dashed var(--color-on-background) 0.1em;
 	border-radius: 0.5em;
 	padding: var(--p-2);
 
@@ -92,7 +92,7 @@
 		display: inherit;
 		flex-direction: column;
 		padding: 0.25em;
-		border: solid 0.1em var(--color-on-background);
+		border: solid 0.025em var(--color-on-background);
 		border-radius: 0.2em;
 		& > legend {
 			margin-left: 1em;

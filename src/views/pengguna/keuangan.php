@@ -1,8 +1,7 @@
 <?php
 require ROOT_DIR . '/partial/dashboard/upper.php';
 ?>
-<style>
-</style>
+<script src="<?= URL . '/js/transaction.js' ?>"></script>
 <section style="display: flex; height: 100%; ">
   <div style="flex-grow: 1; overflow-y: auto; padding-right: 1em; padding-left: 1em; ">
     <h1>
