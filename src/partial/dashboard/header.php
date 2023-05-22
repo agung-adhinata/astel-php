@@ -8,6 +8,6 @@ if (isset($_SESSION['role']) and $_SESSION['role'] == 0) {
   <a class="h2 flex items-center" style=" gap:0.25em; " href=<?= get_base_url() . '/app' ?>>Astel App
     <?= $header_title_admin ?> <i class="fa-solid fa-wallet"></i></a>
   <div>
-    <?= $_SESSION['user_id'] ?>
+    <?= $_SESSION['email'] ?>
   </div>
 </header>
