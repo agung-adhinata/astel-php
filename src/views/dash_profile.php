@@ -1,14 +1,13 @@
 <?php
-require_once ROOT_DIR . 'config.php';
+require ROOT_DIR . '/partial/dashboard/upper.php';
+?>
+<?php
 
-$result = $GLOBALS['_db']->query("SELECT profil.nama, akun.email");
-if (mysqli_num_rows($result) < 1) {
+$result = $_db->query("SELECT profil.nama, akun.email, akun.password FROM profil INNER JOIN pengguna ON profil.id_pengguna = pengguna.id_pengguna INNER JOIN akun ON pengguna.id_akun = akun.id_akun");
+if ($result && mysqli_num_rows($result) < 1) {
 
 }
 $sanitize_res = $result->fetch_array();
-?>
-<?php
-require ROOT_DIR . '/partial/dashboard/upper.php';
 ?>
 <style>
   form {
@@ -35,7 +34,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
   Dashboard
 </h1>
 <section>
-  <form method="post">
+  <form action="<?= URL . '/api/updateProfil.php' ?>" method="post">
     <section>
       <label for="name">
         Name
@@ -50,11 +49,11 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
     </section>
     <section>
       <label for="pass">
-        New Password
+        Password
       </label>
-      <input type="password" name="pass" id="pass" />
+      <input type="password" value="<?= $sanitize_res['password'] ?>" name="pass" id="pass" />
     </section>
-    <button type="submit">Save changes</button>
+    <button type="submit" name="submitBtn">Save changes</button>
   </form>
 </section>
 

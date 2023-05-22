@@ -7,6 +7,12 @@ function sendForm(url) {
   fetch()
 }
 
-function createTransactionCard({ date, id, group, amount, is_income, author }) {
 
+
+function editTransaction(id, title, description, amount, group, date) {
+  const parent = document.querySelector('form.transaction-form')
+  parent.querySelector('#id').innerHTML = id
+  parent.querySelector('#title').innerHTML = title
+  parent.querySelector('#description').innerHTML = description
+  parent.querySelector('#amount').innerHTML = amount
 }

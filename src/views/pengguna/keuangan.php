@@ -3,8 +3,8 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
 ?>
 <style>
 </style>
-<section style="display: flex;">
-  <div style="flex-grow: 1;">
+<section style="display: flex; height: 100%;">
+  <div style="flex-grow: 1; overflow-y: auto;">
     <h1>
       Keuangan
     </h1>
@@ -19,7 +19,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
         <section class="info">
         </section>
         <section class="content h1">
-          <i class="fa-solid fa-arrow-up-right-dots"></i>
+          <i class="fa-solid fa-angles-up"></i>
           <span class="amount">IDR 50.000</span>
         </section>
         <section class="footer">

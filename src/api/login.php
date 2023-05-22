@@ -11,7 +11,7 @@ if (isset($_POST['submitBtn'])) {
     $id_akun = $sanitize_arr['id_akun'];
     $is_admin = mysqli_num_rows($_db->query("SELECT id_akun FROM admin WHERE id_akun = {$id_akun}")) > 0;
 
-    $_SESSION['user_id'] = $sanitize_arr['email'];
+    $_SESSION['user_id'] = $sanitize_arr['id_akun'];
     if ($is_admin) {
       $_SESSION['role'] = 0;
     } else {
