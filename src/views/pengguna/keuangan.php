@@ -23,14 +23,14 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
         </section>
         <section class="footer">
           <span class="title h5">Hutank</span>
-          <span class="action">
+          <form class="action">
             <button class="btn-square btn-outline">
-              <i class="fa-regular fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </button>
             <button class="btn-square btn-outline">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
-          </span>
+          </form>
         </section>
       </div>
     </section>

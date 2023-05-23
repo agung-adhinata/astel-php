@@ -38,6 +38,11 @@
       <option value="dompet">Dompet</option>
     </select>
   </section>
+  <section>
+    <button type="button" id="btnToggleGroupList" class="btn-secondary" style="min-width:100%;">
+      Add more group?
+    </button>
+  </section>
   <hr />
-  <button type="submit">Update Data</button>
+  <button type="submit">Publish Data</button>
 </form>

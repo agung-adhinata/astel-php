@@ -204,6 +204,7 @@ button,
 	border-radius: var(--p-2);
 	border: solid 1.5px var(--color-background);
 }
+
 .btn-square {
 	display: grid;
 	place-content: center;
@@ -256,6 +257,13 @@ button:active,
 .btn:active {
 	animation-name: clicked;
 	animation-duration: 200ms;
+}
+
+button:disabled,
+.btn:disabled {
+	opacity: 0.5;
+	transition: none;
+	cursor: not-allowed;
 }
 
 @media (hover: none) {
