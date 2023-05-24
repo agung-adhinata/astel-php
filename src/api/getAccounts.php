@@ -2,8 +2,8 @@
 require_once '../config.php';
 $run = true;
 header('Content-type: application/json');
-
 session_start();
+
 if (!isset($_SESSION['user_id'])) {
   $responseJson = [
     "error" => "true",
