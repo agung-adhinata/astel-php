@@ -37,7 +37,9 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
   <section class="user-card">
     <div class="header small">
       <span>ID:1</span>
-      <span class="is-you">THIS IS YOU</span>
+      <template x-if="is_admin">
+        <span class="is-you">THIS IS YOU</span>
+      </template>
     </div>
     <div class="content">
       EMAIL: admin@astel.com

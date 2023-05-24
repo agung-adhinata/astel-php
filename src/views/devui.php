@@ -88,6 +88,34 @@
         </label>
       </div>
     </section>
+    <table x-data="{ users: [] }" x-init="fetch('https://jsonplaceholder.typicode.com/users')
+              .then(response => response.json())
+              .then(data => users = data)">
+      <thead>
+        <tr>
+          <th class="has-background-link-light has-text-link">ID</th>
+          <th class="has-background-link-light has-text-link">Username</th>
+          <th class="has-background-link-light has-text-link">Name</th>
+          <th class="has-background-link-light has-text-link">Phone</th>
+          <th class="has-background-link-light has-text-link">Location</th>
+          <th class="has-background-link-light has-text-link">Company Name</th>
+          <th class="has-background-link-light has-text-link">Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="user in users" :key="user.id">
+          <tr>
+            <td x-text="user.id" class="has-text-link-dark"></td>
+            <td x-text="user.username"></td>
+            <td x-text="user.name"></td>
+            <td x-text="user.phone"></td>
+            <td x-text="user.address.city"></td>
+            <td x-text="user.company.name"></td>
+            <td x-text="user.website"></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
   </main>
 
 </body>
