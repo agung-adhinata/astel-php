@@ -7,6 +7,19 @@
 </head>
 
 <body>
+  <script>
+    Alpine.data("transaction", () => ({
+      id: "",
+      name: "",
+      desc: "",
+      amount: 0,
+      is_income: true,
+      id_group: "",
+      sendForm() {
+        consolel.log(this.id, this.name, this.desc, this.amount)
+      }
+    }))
+  </script>
   <main style="display: flex; flex-direction: column; gap: 2px;">
     <section>
       <h1 class="reset">this is h1</h1>
@@ -52,9 +65,9 @@
       <button>my button</button>
       <button class="btn-secondary">my button</button>
     </section>
-    <section>
+    <section x-data="transaction">
       <label for="lbl">Label</label>
-      <input type="text" name="lbl" id="lbl" />
+      <input type="text" x-model="name" x-on:change="sendForm" name="lbl" id="lbl" />
     </section>
     <section>
       <label for="lbl2">Label</label>
