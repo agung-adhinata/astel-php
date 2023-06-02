@@ -3,7 +3,7 @@ require_once '../config.php';
 $run = true;
 header('Content-type: application/json');
 
-// cek apakah akun sudah login and role harus admin
+// cek apakah akun sudah login
 if (!isset($_SESSION['user_id'])) {
   $responseJson = [
     "error" => "true",

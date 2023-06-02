@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once '../config.php';
 header('Content-type: application/json');
 // jika akun belum login
 if (!isset($_SESSION['user_id'])) {
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
-$pengguna_data = $_db->query("SELECT id_pengguna from transaction where id_akun = {$_SESSION['user_id']} limit 1");
+$pengguna_data = $_db->query("SELECT id_pengguna from pengguna where id_akun = {$_SESSION['user_id']}");
 
 if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {
   $response = [
@@ -25,9 +25,9 @@ if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {
 }
 $pengguna_data = $pengguna_data->fetch_array();
 
-$transaction_data = $_db->query("SELECT * FROM transaksi WHERE id_pengguna = {$pengguna_data['id_pengguna']}");
+$group_data = $_db->query("SELECT nama_grup FROM grup WHERE id_pengguna = {$pengguna_data['id_pengguna']}");
 
-if (!$transaction_data) {
+if (!$group_data) {
   $response = [
     'error' => true,
     'message' => "Server error: {$_db->error}"
@@ -37,7 +37,7 @@ if (!$transaction_data) {
   exit();
 } else {
   $response = [];
-  while ($row = $transaction_data->fetch_assoc()) {
+  while ($row = $group_data->fetch_assoc()) {
     $response[] = $row;
   }
   echo json_encode($response);

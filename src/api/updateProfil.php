@@ -12,5 +12,11 @@ if (isset($_SESSION['user_id']) and isset($_POST['submitBtn'])) {
     if ($res and $res2) {
       header('Location: ' . URL . '/app/account');
     }
+  } else if ($_SESSION['role'] = 0) {
+    $pass = $_POST['pass'];
+    $q1 = $_db->query("UPDATE akun SET password='{$pass}' WHERE id_akun = '{$_SESSION['user_id']}'");
+    if ($q1) {
+      header('Location: ' . URL . '/app/account');
+    }
   }
 }
