@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once '../config.php';
 header('Content-type: application/json');
 // jika akun belum login
 if (!isset($_SESSION['user_id'])) {
@@ -12,7 +12,8 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
-$pengguna_data = $_db->query("SELECT id_pengguna from transaction where id_akun = {$_SESSION['user_id']} limit 1");
+// harus akun pengguna
+$pengguna_data = $_db->query("SELECT id_pengguna from pengguna where id_akun = {$_SESSION['user_id']}");
 
 if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {
   $response = [
@@ -23,23 +24,54 @@ if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {
   echo json_encode($response);
   exit();
 }
+
+$where_clause = "";
+// Main fetching
+if (isset($_GET['date']) or isset($_GET['search'])) {
+  $query = array();
+  if (isset($_GET['date'])) {
+    $temp = explode('-', $_GET['date']);
+    $year = (int) $temp[0];
+    $month = (int) $temp[1];
+    array_push($query, "MONTH(tanggal) = '{$month}' AND YEAR(tanggal) = '{$year}'");
+  }
+  if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    array_push($query, "nama LIKE '%{$search}%'");
+  }
+  if (sizeof($query) > 0) {
+    $where_clause = join(" AND ", $query);
+    $where_clause = $where_clause . ' AND ';
+  }
+}
+
 $pengguna_data = $pengguna_data->fetch_array();
 
-$transaction_data = $_db->query("SELECT * FROM transaksi WHERE id_pengguna = {$pengguna_data['id_pengguna']}");
+$transaction_data = $_db->query("SELECT * FROM transaksi WHERE {$where_clause} id_pengguna = {$pengguna_data['id_pengguna']} ORDER BY tanggal DESC");
+$in_data = $_db->query("SELECT SUM(jumlah) as total_in FROM transaksi WHERE {$where_clause} tipe_transaksi='income' AND id_pengguna = {$pengguna_data['id_pengguna']}")->fetch_array();
+$out_data = $_db->query("SELECT SUM(jumlah) as total_out FROM transaksi WHERE {$where_clause} tipe_transaksi='expense' AND id_pengguna = {$pengguna_data['id_pengguna']}")->fetch_array();
 
-if (!$transaction_data) {
+if (!$transaction_data or !$in_data or !$out_data) {
   $response = [
     'error' => true,
-    'message' => "Server error: {$_db->error}"
+    'message' => "Server error: {$_db->error}",
+    'stacktrace' => "{$where_clause}"
   ];
   http_response_code(500);
   echo json_encode($response);
   exit();
 } else {
-  $response = [];
+  $transactions = [];
   while ($row = $transaction_data->fetch_assoc()) {
-    $response[] = $row;
+    $transactions[] = $row;
   }
+  $total = ((int) $in_data["total_in"] ?? 0) - ((int) $out_data["total_out"] ?? 0);
+  $response = [
+    "transactions" => $transactions,
+    "total_income" => $in_data["total_in"] ?? 0,
+    "total_expense" => $out_data["total_out"] ?? 0,
+    "total" => $total
+  ];
   echo json_encode($response);
   exit;
 }

@@ -1,10 +1,10 @@
 </div>
 </main>
-<footer>
+<!-- <footer>
   <h2>
     Footer section
   </h2>
-</footer>
+</footer> -->
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<div class="inspector" x-init="getGroupsList()">
+<div class="inspector">
   <form x-on:submit.prevent="postTransaction()" class="transaction-form" method="post">
     <span x-html="titleTransactionForm" class="h2"></span>
     <hr />
@@ -17,13 +17,13 @@
     <fieldset x-model="formType" x-init="$watch('formType', value => console.log(value))">
       <legend>Pilih tipe transaksi</legend>
       <div>
-        <input type="radio" value="income" id="formIncome" name="type" />
+        <input type="radio" x-bind:checked="formType == 'income'" :value="'income'" id="formIncome" name="type" />
         <label for="income">
           Income
         </label>
       </div>
       <div>
-        <input type="radio" value="expense" id="formExpense" name="type" />
+        <input type="radio" :value="'expense'" x-bind:checked="formType == 'expense'" id="formExpense" name="type" />
         <label for="expense">
           expense
         </label>
@@ -32,9 +32,9 @@
     <section>
       <label for="group-select">Grup :</label>
       <select x-model="formGroup" name="group" id="group-select">
-        <option value="">--Please choose an option--</option>
+        <option x-bind:selected="formGroup == ''" value="">--Please choose an option--</option>
         <template x-for="(data, index) in groupList" :key="index">
-          <option value="data.nama_grup" x-text="data.nama_grup"></option>
+          <option :value="data.id" x-bind:selected="data.id == formGroup" x-text="data.nama_grup"></option>
         </template>
       </select>
     </section>
@@ -45,13 +45,16 @@
       </button>
 
     </section>
+    <button x-transition class="btn-outline" x-show="formCurrentId != null" x-on:click="useCreateTransactionForm()"
+      type="button">Switch to Create</button>
     <hr />
     <button x-html="btnSubmitTitleTransactionForm" type="submit"></button>
   </form>
 
-  <form x-on:submit.prevent="postNewGroup()" class="transaction-form" role="dialog" x-transition x-cloak
-    x-show="isGroupModalOpen">
-    <h3>Tambah grup</h3>
+  <form style="margin-top:0.5em;" x-on:submit.prevent="postNewGroup()" class="transaction-form" role="dialog"
+    x-transition x-cloak x-show="isGroupModalOpen">
+    <hr />
+    <h6 style=" margin-top: 0; ">Group Editor</h6>
     <section>
       <label for="name">Nama</label>
       <input type="text" x-model="newGroupName" name="name" id="name" required />

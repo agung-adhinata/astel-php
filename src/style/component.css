@@ -7,6 +7,13 @@
 	gap: 1em;
 }
 
+.transaction-list {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	gap: 0.5em;
+}
+
 .transaction-card {
 	display: flex;
 	flex-direction: column;
@@ -15,7 +22,7 @@
 	border-radius: 0.5em;
 	padding: var(--p-2);
 
-	transition-property: transform box-shadow color background-color;
+	transition-property: transform height box-shadow color background-color;
 	transition-duration: 100ms;
 	transition-timing-function: ease-in-out;
 
