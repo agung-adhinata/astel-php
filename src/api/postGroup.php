@@ -17,8 +17,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 
-
-
 $pengguna_data = $_db->query("SELECT id_pengguna from pengguna where id_akun = {$_SESSION['user_id']}");
 
 if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {

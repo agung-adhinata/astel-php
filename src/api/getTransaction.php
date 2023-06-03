@@ -1,6 +1,7 @@
 <?php
 require_once '../config.php';
 header('Content-type: application/json');
+// Menampilkan json traksaksi ketika memilih menu keuangan
 // jika akun belum login
 if (!isset($_SESSION['user_id'])) {
   $response = [
@@ -27,7 +28,7 @@ if (!$pengguna_data or mysqli_num_rows($pengguna_data) < 1) {
 
 $where_clause = "";
 // Main fetching
-if (isset($_GET['date']) or isset($_GET['search'])) {
+if (isset($_GET['date']) or isset($_GET['search']) or isset($_GET['group'])) {
   $query = array();
   if (isset($_GET['date'])) {
     $temp = explode('-', $_GET['date']);
@@ -38,6 +39,10 @@ if (isset($_GET['date']) or isset($_GET['search'])) {
   if (isset($_GET['search'])) {
     $search = $_GET['search'];
     array_push($query, "nama LIKE '%{$search}%'");
+  }
+  if (isset($_GET['group'])) {
+    $group = $_GET['group'];
+    array_push($query, "id_grup = '{$group}'");
   }
   if (sizeof($query) > 0) {
     $where_clause = join(" AND ", $query);

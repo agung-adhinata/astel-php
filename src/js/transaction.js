@@ -15,6 +15,7 @@ document.addEventListener('alpine:init', () => {
 
     searchForm: {
       month: "",
+      group: "",
       text: "",
     },
 
@@ -86,9 +87,15 @@ document.addEventListener('alpine:init', () => {
       if (this.searchForm.text.length > 0) {
         urlWithParam.searchParams.append('search', this.searchForm.text)
       }
+      if (this.searchForm.group.length > 0) {
+        urlWithParam.searchParams.append('group', this.searchForm.group)
+      }
       console.log(urlWithParam.toString())
       await fetch(urlWithParam.toString(), { method: "GET" }).then(response => response.json()).then(value => {
         this.postList = value.transactions
+        this.incomeTotal = value.total_income
+        this.expenseTotal = value.total_expense
+        this.total = value.total
       })
       this.loading = false
     },
@@ -122,7 +129,7 @@ document.addEventListener('alpine:init', () => {
         this.postList = value.transactions;
         this.incomeTotal = value.total_income
         this.expenseTotal = value.total_expense
-        this.total = this.incomeTotal - this.expenseTotal
+        this.total = value.total
         console.log(value)
       })
       this.loading = false

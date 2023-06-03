@@ -3,6 +3,7 @@ require_once '../config.php';
 $run = true;
 header('Content-type: application/json');
 
+// Lupa sy ini fungsinya buat apa, somehow bila saya hapus file ini, seluruh aplikasi bakal crash
 // cek apakah akun sudah login
 if (!isset($_SESSION['user_id'])) {
   $responseJson = [
