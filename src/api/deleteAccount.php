@@ -45,9 +45,25 @@ if (isset($_GET['id']) and isset($_GET['role'])) {
   } else if ($_GET['role'] == 1) {
     if ($result = $_db->query("SELECT id_akun as id FROM pengguna where id_admin = '{$_GET['id']}'")) {
       $id_akun = $result->fetch_array()['id'];
-      $_db->query("DELETE FROM profil WHERE id_pengguna = {$_GET['id']}");
-      $_db->query("DELETE FROM pengguna WHERE id_pengguna = {$_GET['id']}");
-      $_db->query("DELETE FROM akun WHERE id_akun = {$id_akun}");
+      $res1 = $_db->query("DELETE FROM profil WHERE id_pengguna = {$_GET['id']}");
+      $res2 = $_db->query("DELETE FROM pengguna WHERE id_pengguna = {$_GET['id']}");
+      $res3 = $_db->query("DELETE FROM akun WHERE id_akun = {$id_akun}");
+      if ($res1 and $res2 and $res3) {
+        $response = [
+          "error" => false,
+          "message" => "gold"
+        ];
+        echo json_encode($response);
+        exit();
+      } else {
+        $response = [
+          "error" => true,
+          "message" => "error when deleting file, " . $_db->error
+        ];
+        http_response_code(500);
+        echo json_encode($response);
+        exit();
+      }
     }
     $response = [
       "error" => true,

@@ -72,7 +72,8 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
             <button class="btn-square btn-outline" x-on:click="deletePengguna(value.id_pengguna)">
               <i class="fa-solid fa-trash-can"></i>
             </button>
-            <button x-on:click="editCurrentPengguna(value.id_pengguna, value.email)" class="btn-square btn-outline">
+            <button x-on:click="editCurrentPengguna(value.id_pengguna, value.email, value.nama)"
+              class="btn-square btn-outline">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
           </div>
@@ -81,16 +82,18 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
     </section>
   </section>
   <section>
-    <form x-show="editMode" x-on:submit.prevent="updateAdmin()" class="transaction-form">
+    <form x-show="editMode" x-on:submit.prevent="updatePengguna()" class="transaction-form">
       <h5>Edit admin</h5>
       <input type="email" x-model="editForm.email" placeholder="email pengguna">
+      <input type="text" x-model="editForm.nama" placeholder="nama pengguna">
       <input type="password" x-model="editForm.pass" placeholder="new password">
       <button type="submit">Update</button>
       <button type="button" class="btn-outline" x-on:click="resetForm()">Close</button>
     </form>
-    <form x-show="createMode" x-on:submit.prevent="createAdmin()" class="transaction-form">
+    <form x-show="createMode" x-on:submit.prevent="createPengguna()" class="transaction-form">
       <h5>Buat admin</h5>
       <input type="email" x-model="editForm.email" placeholder="email baru">
+      <input type="text" x-model="editForm.nama" placeholder="nama baru">
       <input type="password" x-model="editForm.pass" placeholder="password baru">
       <button type="submit">Create</button>
       <button type="button" class="btn-outline" x-on:click="resetForm()">Close</button>

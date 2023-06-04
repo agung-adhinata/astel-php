@@ -5,6 +5,7 @@ document.addEventListener('alpine:init', () => {
     editForm: {
       id: "",
       email: "",
+      nama: "",
       pass: "",
     },
 
@@ -15,12 +16,14 @@ document.addEventListener('alpine:init', () => {
     init() {
       this.getPenggunaList()
     },
-    editCurrentPengguna(id, email) {
+    editCurrentPengguna(id, email, nama) {
       this.showCreateBtn = false
       this.editMode = true
       this.createMode = false
       this.editForm.id = id
       this.editForm.email = email
+      this.editForm.nama = nama
+      console.log(this.editForm)
     },
     enableCreateMode() {
       this.showCreateBtn = false
@@ -34,6 +37,7 @@ document.addEventListener('alpine:init', () => {
       this.showCreateBtn = true
       this.editForm.email = ""
       this.editForm.pass = ""
+      this.editForm.nama = ""
       this.editForm.id = ""
     },
     getPenggunaList() {
@@ -43,8 +47,9 @@ document.addEventListener('alpine:init', () => {
       const body = {
         id: this.editForm.id,
         email: this.editForm.email,
+        nama: this.editForm.nama,
         pass: this.editForm.pass,
-        role: 0
+        role: 1
       }
       console.log(body)
       await fetch(FULLURL + '/postProfil.php', {
@@ -57,14 +62,15 @@ document.addEventListener('alpine:init', () => {
       const body = {
         id: "",
         email: this.editForm.email,
+        nama: this.editForm.nama,
         pass: this.editForm.pass,
-        role: 0
+        role: 1
       }
-
+      console.log(body)
       await fetch(FULLURL + '/postProfil.php', {
         method: "POST",
         body: JSON.stringify(body)
-      }).then(response => response.json()).then(value => console.log(value))
+      }).then(response => response.text()).then(value => console.log(value))
       this.getPenggunaList()
     },
     async deletePengguna(id) {

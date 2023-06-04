@@ -96,11 +96,19 @@ if (strlen($POST['id']) > 0) {
         $result_data = $_db->query("UPDATE akun SET email = '{$POST['email']}', password = '{$POST['pass']}' WHERE id_akun = '{$id_akun}'");
       else
         $result_data = $_db->query("UPDATE akun SET email = '{$POST['email']}' WHERE id_akun = '{$id_akun}'");
-      $result_data = $_db->query("UPDATE profil SET nama = '{$POST['nama']}', password = '{$POST['deskripsi']}' WHERE id_pengguna = '{$POST['id']}' ");
+      $result_data = $_db->query("UPDATE profil SET nama = '{$POST['nama']}' WHERE id_pengguna = '{$POST['id']}' ");
       if ($result_data) {
         $response = [
           "error" => false,
         ];
+        echo json_encode($response);
+        exit();
+      } else {
+        $response = [
+          "error" => true,
+          "message" => "server error, " . $_db->error
+        ];
+        http_response_code(500);
         echo json_encode($response);
         exit();
       }
@@ -123,11 +131,20 @@ if (strlen($POST['id']) > 0) {
     }
   } else {
     //is pengguna
-    $result_data = $_db->query("INSERT INTO admin (id_akun, nama) VALUE ('{$result_data}')");
-    if ($result_data) {
+    $result1 = $_db->query("INSERT INTO pengguna (id_akun) VALUE ('{$result_data}')");
+    $result2 = $_db->query("INSERT INTO profil (id_pengguna, nama) VALUE ('{$_db->insert_id}', '{$POST['nama']}')");
+    if ($result1 and $result2) {
       $response = [
-        "error" => false,
+        "error" => false
       ];
+      echo json_encode($response);
+      exit();
+    } else {
+      $response = [
+        "error" => true,
+        "message" => "server error, " . $_db->error
+      ];
+      http_response_code(500);
       echo json_encode($response);
       exit();
     }
