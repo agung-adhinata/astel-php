@@ -36,9 +36,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
             <option :value="data.id" x-bind:selected="data.id == searchForm.group" x-text="data.nama_grup"></option>
           </template>
         </select>
-        <input x-model="searchForm.text" style="flex-grow:1;" type="text">
-
-        <button x-on:click="searchItem()">search</button>
+        <input x-effect="searchItem()" x-model="searchForm.text" style="flex-grow:1;" type="text">
       </div>
     </section>
     <section class="transaction-list" style="overflow-y:scroll;">

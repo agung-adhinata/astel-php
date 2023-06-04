@@ -11,13 +11,34 @@ document.addEventListener('alpine:init', () => {
     },
     reportHref: "",
     groupList: [],
+    reportList: [],
     init() {
       this.getGroupsList()
+      this.getReportList()
     },
     getGroupsList() {
       fetch(FULLURL + '/getGroup.php', {
         method: "GET"
       }).then(response => response.json()).then(value => this.groupList = value).then(value => { console.log(value) })
+    },
+    getReportList() {
+      fetch(FULLURL + '/getLaporan.php', {
+        method: "GET"
+      }).then(response => response.json()).then(value => this.reportList = value).then(value => { console.log(value) })
+    },
+    async seveReport() {
+      const body = {
+        judul: this.reportForm.name,
+        deskripsi: this.reportForm.desc,
+        tanggal: this.reportForm.month,
+        idGrup: this.reportForm.group
+      }
+      console.log(body)
+      await fetch(FULLURL + "/postLaporan.php", {
+        method: "POST",
+        body: JSON.stringify(body)
+      }).then(response => response.text()).then(value => console.log(value))
+      this.getReportList()
     },
     updateReportLink() {
       const month = this.reportForm.month

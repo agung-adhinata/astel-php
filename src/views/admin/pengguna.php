@@ -83,7 +83,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
   </section>
   <section>
     <form x-show="editMode" x-on:submit.prevent="updatePengguna()" class="transaction-form">
-      <h5>Edit admin</h5>
+      <h5>Edit pengguna</h5>
       <input type="email" x-model="editForm.email" placeholder="email pengguna">
       <input type="text" x-model="editForm.nama" placeholder="nama pengguna">
       <input type="password" x-model="editForm.pass" placeholder="new password">
@@ -91,7 +91,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <button type="button" class="btn-outline" x-on:click="resetForm()">Close</button>
     </form>
     <form x-show="createMode" x-on:submit.prevent="createPengguna()" class="transaction-form">
-      <h5>Buat admin</h5>
+      <h5>Buat akun pengguna</h5>
       <input type="email" x-model="editForm.email" placeholder="email baru">
       <input type="text" x-model="editForm.nama" placeholder="nama baru">
       <input type="password" x-model="editForm.pass" placeholder="password baru">

@@ -69,7 +69,15 @@ if (isset($_SESSION['user_id'])) {
       </section>
       <button type="submit" name="submitBtn">Register</button>
       <a class="btn btn-secondary" href=<?= get_base_url() . '/login' ?>>Back to login</a>
+      <section>
+        <span>
+          <? echo $_SESSION['err_message'] ?? '';
+          unset($_SESSION['err_message']);
+          ?>
+        </span>
+      </section>
     </form>
+
   </section>
   <?php
 
