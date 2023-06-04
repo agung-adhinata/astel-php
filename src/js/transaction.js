@@ -7,6 +7,7 @@ document.addEventListener('alpine:init', () => {
     isEmpty: false,
     incomeTotal: 0,
     expenseTotal: 0,
+    pastTotal: 0,
     total: 0,
     idrFormat: new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -32,9 +33,12 @@ document.addEventListener('alpine:init', () => {
     formDesc: "",
     formType: "",
     formGroup: "",
+    formDate: "",
+    formTime: "",
     init() {
       this.getGroupsList()
       this.getTransactionList()
+      this.useCreateTransactionForm()
     },
     resetSearchForm() {
       this.searchForm.month = ""
@@ -61,6 +65,8 @@ document.addEventListener('alpine:init', () => {
           this.formGroup = data.id_grup
           this.formType = data.tipe_transaksi
           this.formCurrentId = data.id_transaksi
+          this.formDate = data.tanggal.substring(0, 10)
+          this.formTime = data.tanggal.substring(11, 16)
 
           this.titleTransactionForm = "Edit Transaksi"
           this.btnSubmitTitleTransactionForm = "Update Transaksi"
@@ -69,6 +75,7 @@ document.addEventListener('alpine:init', () => {
       }
     },
     useCreateTransactionForm() {
+      const date = new Date()
       this.formName = ""
       this.formValue = ""
       this.formDesc = ""
@@ -77,6 +84,8 @@ document.addEventListener('alpine:init', () => {
       this.formCurrentId = null
       this.titleTransactionForm = "Tambah Transaksi"
       this.btnSubmitTitleTransactionForm = "Publish"
+      this.formDate = date.toISOString().substring(0, 10)
+      this.formTime = date.toISOString().substring(11, 16)
     },
     async searchItem() {
       const urlWithParam = new URL(FULLURL + '/getTransaction.php')
@@ -96,6 +105,8 @@ document.addEventListener('alpine:init', () => {
         this.incomeTotal = value.total_income
         this.expenseTotal = value.total_expense
         this.total = value.total
+        this.pastTotal = value.past_total
+        console.log(value)
       })
       this.loading = false
     },
@@ -125,13 +136,14 @@ document.addEventListener('alpine:init', () => {
       this.loading = true
       await fetch(FULLURL + '/getTransaction.php', {
         method: "GET"
-      }).then(response => response.json()).then(value => {
-        this.postList = value.transactions;
-        this.incomeTotal = value.total_income
-        this.expenseTotal = value.total_expense
-        this.total = value.total
-        console.log(value)
-      })
+      }).then(response => response.json())
+        .then(value => {
+          this.postList = value.transactions;
+          this.incomeTotal = value.total_income
+          this.expenseTotal = value.total_expense
+          this.total = value.total
+          console.log(value)
+        })
       this.loading = false
     },
     async postTransaction() {
@@ -141,7 +153,9 @@ document.addEventListener('alpine:init', () => {
         value: this.formValue,
         desc: this.formDesc,
         type: this.formType,
-        group: this.formGroup
+        group: this.formGroup,
+        date: this.formDate,
+        time: this.formTime
       }
       console.log(data)
       await fetch(FULLURL + '/postTransaction.php', {
