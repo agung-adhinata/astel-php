@@ -11,15 +11,19 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
     <section class="font-mono " style="display:flex; flex-direction:column; width: 100%; margin-bottom: 1em; ">
       <div style="flex-grow: 1; display: inherit; flex-direction: column; ">
         <div style="display:flex; ">
-          <span style="flex-grow:1;">keuangan saat ini :</span>
+          <span style="flex-grow:1;">Sisa dana sebelumnya :</span>
+          <span x-html="idrFormat.format(pastTotal)"></span>
+        </div>
+        <div style="display:flex; ">
+          <span style="flex-grow:1;">Dana yang tersisa saat ini :</span>
           <span x-html="idrFormat.format(total)"></span>
         </div>
         <div style="display:flex; ">
-          <span style="flex-grow:1;">income total :</span>
+          <span style="flex-grow:1;">jumlah dana masuk (+) :</span>
           <span x-html="idrFormat.format(incomeTotal)"></span>
         </div>
         <div style="display:flex; ">
-          <span style="flex-grow:1;">expense total :</span>
+          <span style="flex-grow:1;">Jumlah dana keluar(-) :</span>
           <span x-html="idrFormat.format(expenseTotal)"></span>
         </div>
       </div>

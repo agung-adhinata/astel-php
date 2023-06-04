@@ -2,6 +2,11 @@
   <form x-on:submit.prevent="postTransaction()" class="transaction-form" method="post">
     <span x-html="titleTransactionForm" class="h2"></span>
     <hr />
+    <section style="gap:0.5em;" x-effect="console.log(formDate + ' ' + formTime)">
+      <input type="date" style="flex-grow: 1;" x-model="formDate" required id="formDate" />
+      <input type="time" x-model="formTime" required />
+    </section>
+    <hr />
     <section>
       <label for="formTitle">Judul :</label>
       <input type="text" name="title" x-model="formName" id="formTitle" required />
