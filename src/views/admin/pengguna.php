@@ -61,12 +61,15 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <template x-for="(value, index) in penggunaList" :key="index">
         <section class="user-card">
           <div class="header small">
-            <span>ID: <span x-html="value.id_pengguna"></span> </span>
-            <span class="is-you">THIS IS YOU</span>
+            <span>ID: <span x-html="value.id_pengguna"></span></span>
           </div>
           <div class="content">
-            EMAIL: <span x-html="value.email"></span>
-            NAMA: <span x-html="value.nama"></span>
+            <div>
+              EMAIL: <span x-html="value.email"></span>
+            </div>
+            <div>
+              NAMA: <span x-html="value.nama"></span>
+            </div>
           </div>
           <div class="footer">
             <button class="btn-square btn-outline" x-on:click="deletePengguna(value.id_pengguna)">

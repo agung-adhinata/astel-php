@@ -27,7 +27,7 @@ if (!$admin_data or mysqli_num_rows($admin_data) < 1) {
 }
 $admin_data = $admin_data->fetch_array();
 
-$response_data = $_db->query("SELECT admin.id_admin as id_admin, akun.email as email FROM admin INNER JOIN akun ON admin.id_akun = akun.id_akun");
+$response_data = $_db->query("SELECT admin.id_admin as id_admin, akun.email as email FROM admin INNER JOIN akun ON admin.id_akun = akun.id_akun where admin.id_admin != {$admin_data['id_admin']}");
 
 if (!$response_data) {
   $response = [

@@ -23,8 +23,13 @@ if (isset($_POST['submitBtn']) and isset($_POST['email']) and isset($_POST['pass
       $_SESSION['role'] = 1;
     }
     $status = true;
-    if ($status)
-      header("Location: " . URL . '/app');
+    if ($status) {
+      if ($_SESSION['role'] == 0)
+        header("Location: " . URL . '/app/admins');
+      else
+        header("Location: " . URL . '/app/keuangan');
+
+    }
   } else {
     echo 'Error: ' . mysqli_error($_db);
     // header("Location: " . URL . '/login');

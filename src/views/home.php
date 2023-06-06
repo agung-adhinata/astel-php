@@ -5,7 +5,6 @@
 
 <head>
   <?php Template::getHeadlessHead("Astel App", "my description"); ?>
-
 </head>
 
 <body>

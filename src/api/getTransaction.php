@@ -38,7 +38,6 @@ if (isset($_GET['date']) or isset($_GET['search']) or isset($_GET['group'])) {
     $temp = explode('-', $_GET['date']);
     $year = (int) $temp[0];
     $month = (int) $temp[1];
-
     $past_where_month_clause = $month;
     $past_where_year_clause = $year;
     array_push($query, "MONTH(tanggal) = '{$month}' AND YEAR(tanggal) = '{$year}'");
@@ -101,8 +100,8 @@ if (!$transaction_data or !$in_data or !$out_data) {
   while ($row = $transaction_data->fetch_assoc()) {
     $transactions[] = $row;
   }
-  $total = ((int) $in_data["total_in"] ?? 0) - ((int) $out_data["total_out"] ?? 0);
   $past_total = ((int) $past_in_data['transaksi_in'] ?? 0) - ((int) $past_out_data['transaksi_out'] ?? 0);
+  $total = ((int) $in_data["total_in"] ?? 0) - ((int) $out_data["total_out"] ?? 0) + $past_total;
   $response = [
     "transactions" => $transactions,
     "total_income" => $in_data["total_in"] ?? 0,

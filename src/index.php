@@ -4,6 +4,7 @@ require_once 'config.php';
 
 $_base_url = ENV["BASE_URL"] ?? "";
 $request = $_SERVER['REQUEST_URI'] ?? "";
+// localhost /app/
 // echo $request;
 
 # router app

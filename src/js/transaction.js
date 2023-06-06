@@ -1,4 +1,5 @@
 "use strict"
+
 const FULLURL = 'http://localhost/api'
 document.addEventListener('alpine:init', () => {
   Alpine.data("transaction", () => ({
@@ -13,7 +14,6 @@ document.addEventListener('alpine:init', () => {
       style: 'currency',
       currency: 'IDR',
     }),
-
     searchForm: {
       month: "",
       group: "",
@@ -45,7 +45,6 @@ document.addEventListener('alpine:init', () => {
       this.searchForm.text = ""
     },
     isIncome(string) {
-      console.log(string)
       return string == 'income' ? true : false
     },
     getGroupNameFromID(id) {
@@ -167,7 +166,7 @@ document.addEventListener('alpine:init', () => {
         body: JSON.stringify(data)
       }).then(response => response.json()).then(value => console.log(value))
       this.useCreateTransactionForm()
-      this.getTransactionList()
+      this.searchItem()
     },
     async deleteTransaction(id) {
       await fetch(FULLURL + '/deleteTransaction.php?id=' + id, {
