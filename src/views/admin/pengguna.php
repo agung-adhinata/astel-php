@@ -11,6 +11,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
   .admin-list {
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
   }
 
   .main-list {
@@ -25,12 +26,12 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
 
   .user-card {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 0.5em;
     padding: 1em;
     border: solid 0.1em var(--color-on-background);
     border-radius: 0.5em;
-    max-width: 300px;
+    max-width: 100%;
 
     & .is-you {
       background-color: #bada55;
@@ -47,7 +48,9 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
     &>.footer {
       display: inherit;
       gap: 0.25em;
+      justify-content: end;
       align-items: center;
+      width: 100%;
     }
   }
 </style>
@@ -61,14 +64,13 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <template x-for="(value, index) in penggunaList" :key="index">
         <section class="user-card">
           <div class="header small">
-            <span>ID: <span x-html="value.id_pengguna"></span></span>
           </div>
           <div class="content">
-            <div>
-              EMAIL: <span x-html="value.email"></span>
+            <div class="h5" style="font-weight: 600;">
+              <span x-html="value.email"></span>
             </div>
-            <div>
-              NAMA: <span x-html="value.nama"></span>
+            <div style="color:gray;">
+              <span x-html="value.nama"></span>
             </div>
           </div>
           <div class="footer">

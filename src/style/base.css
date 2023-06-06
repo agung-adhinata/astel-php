@@ -12,13 +12,13 @@
 	--p-7: 1.75rem;
 	--p-8: 2rem;
 
-	--color-background: #e2eae1;
-	--color-on-background: #0b0f0b;
-	--color-btn-primary: #45475f;
+	--color-background: #dbf6e0;
+	--color-on-background: #030c05;
+	--color-btn-primary: #19614d;
 	--color-btn-on-primary: var(--color-background);
-	--color-btn-secondary: #eef2ed;
+	--color-btn-secondary: #bee4ee;
 	--color-btn-on-secondary: var(--color-on-background);
-	--color-accent: #231a1b;
+	--color-accent: #040e10;
 }
 html {
 	font-size: 100%;

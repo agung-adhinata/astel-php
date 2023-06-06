@@ -75,6 +75,7 @@ document.addEventListener('alpine:init', () => {
     },
     useCreateTransactionForm() {
       const date = new Date()
+      // console.log(date.toLocaleString('id', { timeZoneName: 'short' s}))
       this.formName = ""
       this.formValue = ""
       this.formDesc = ""

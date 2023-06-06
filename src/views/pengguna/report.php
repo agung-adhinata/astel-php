@@ -12,9 +12,11 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <template x-for="(value, index) in reportList">
         <a :href="'http://localhost/laporan.php?id='+value.id_laporan +''" target="_blank" class="transaction-card">
           <section class="header">
-            <span x-html="new Date(value.tanggal).toLocaleString('default', { month: 'long',year:'numeric' })"></span>
+            <small class="date">DATE:
+              <span x-html="new Date(value.tanggal).toLocaleString('default', { month: 'long',year:'numeric' })"></span>
+            </small>
           </section>
-          <section class="content">
+          <section class="content h1">
             <span x-html="value.judul"></span>
           </section>
         </a>

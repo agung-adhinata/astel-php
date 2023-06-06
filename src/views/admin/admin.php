@@ -11,6 +11,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
   .admin-list {
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
   }
 
   .main-list {
@@ -25,12 +26,12 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
 
   .user-card {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 0.5em;
     padding: 1em;
     border: solid 0.1em var(--color-on-background);
     border-radius: 0.5em;
-    max-width: 300px;
+    max-width: 100%;
 
     & .is-you {
       background-color: #bada55;
@@ -41,13 +42,17 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       font-family: var(--font-mono);
       display: flex;
       flex-direction: row;
+
+      min-width: fit-content;
       justify-content: space-between;
     }
 
     &>.footer {
       display: inherit;
       gap: 0.25em;
+      justify-content: end;
       align-items: center;
+      width: 100%;
     }
   }
 </style>
@@ -61,11 +66,11 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <template x-for="(value, index) in adminList" :key="index">
         <section class="user-card">
           <div class="header small">
-            <span>ID: <span x-html="value.id_admin"></span> </span>
-            <span class="is-you">THIS IS YOU</span>
+            <!-- <span>ID:-<span x-html="value.id_admin"></span> </span> -->
+            <!-- <span class="is-you">THIS IS YOU</span> -->
           </div>
           <div class="content">
-            EMAIL: <span x-html="value.email"></span>
+            <span class="h4" style="font-weight: 600;" x-html="value.email"></span>
           </div>
           <div class="footer">
             <button class="btn-square btn-outline" x-on:click="deleteAdmin(value.id_admin)">
