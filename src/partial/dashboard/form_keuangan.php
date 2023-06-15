@@ -12,7 +12,7 @@
       <input type="text" name="title" x-model="formName" id="formTitle" required />
     </section>
     <section>
-      <label for="formAmount">Amount :</label>
+      <label for="formAmount">Jumlah (Rp.) :</label>
       <input type="number" name="amount" x-model="formValue" id="formAmount" required />
     </section>
     <section>
@@ -24,20 +24,20 @@
       <div>
         <input type="radio" x-bind:checked="formType == 'income'" :value="'income'" id="formIncome" name="type" />
         <label for="income">
-          Income
+          Pemasukan
         </label>
       </div>
       <div>
         <input type="radio" :value="'expense'" x-bind:checked="formType == 'expense'" id="formExpense" name="type" />
         <label for="expense">
-          expense
+          Pengeluaran
         </label>
       </div>
     </fieldset>
     <section>
       <label for="group-select">Grup :</label>
       <select x-model="formGroup" name="group" id="group-select">
-        <option x-bind:selected="formGroup == ''" value="">--Please choose an option--</option>
+        <option x-bind:selected="formGroup == ''" value="">-- Pilih opsi berikut --</option>
         <template x-for="(data, index) in groupList" :key="index">
           <option :value="data.id" x-bind:selected="data.id == formGroup" x-text="data.nama_grup"></option>
         </template>

@@ -5,9 +5,9 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
 <div x-data="report" style="display: flex;">
   <section style="flex-grow: 1; padding: 0 1em;">
     <h1>
-      Report
+      Laporan
     </h1>
-    <p>Generate report here</p>
+    <p>Berikut adalah daftar laporan yang telah dibuat</p>
     <section class="transaction-list">
       <template x-for="(value, index) in reportList">
         <a :href="'http://localhost/laporan.php?id='+value.id_laporan +''" target="_blank" class="transaction-card">
@@ -29,7 +29,7 @@ require ROOT_DIR . '/partial/dashboard/upper.php';
       <input type="text" x-model="reportForm.name" placeholder="Nama laporan">
       <input type="text" x-model="reportForm.desc" placeholder="Deskripsi">
       <select x-model="reportForm.group">
-        <option x-bind:selected="reportForm.group == ''" value=""> - All Groups - </option>
+        <option x-bind:selected="reportForm.group == ''" value=""> - Pilih Grup - </option>
         <template x-for="(data, index) in groupList" :key="index">
           <option :value="data.id" x-bind:selected="data.id == reportForm.group" x-text="data.nama_grup"></option>
         </template>

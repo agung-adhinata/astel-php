@@ -32,7 +32,7 @@ $sanitize_res = $result->fetch_array();
 <div style="padding-left: 1em;">
 
   <h1>
-    Dashboard
+    Profil akun
   </h1>
   <section>
     <form action="<?= URL . '/api/updateProfil.php' ?>" method="post">

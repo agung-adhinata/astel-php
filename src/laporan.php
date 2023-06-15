@@ -120,6 +120,13 @@ $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
         td {
             border: 1px solid;
         }
+
+        ,
+        td {
+            display: flex;
+            align-items: end;
+            justify-content: end;
+        }
     </style>
 </head>
 
@@ -176,12 +183,27 @@ $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
             </td>
         </tr>
         <tr>
+            <td colspan="3">Jumlah pemasukan</td>
+            <td>-
+                <?= $fmt->formatCurrency($in_data, 'IDR') ?>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Jumlah pengeluaran</td>
+            <td>
+                <?= $fmt->formatCurrency($out_data, 'IDR') ?>
+            </td>
+        </tr>
+        <tr>
             <td colspan="3">Sisa keuangan saat ini</td>
             <td>
                 <?= $fmt->formatCurrency($total_perhitungan, 'IDR') ?>
             </td>
         </tr>
     </table>
+    <script>
+        window.print()
+    </script>
 </body>
 
 </html>
