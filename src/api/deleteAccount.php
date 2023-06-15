@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
-// harus akun pengguna
+// harus akun admin
 $admin_data = $_db->query("SELECT id_admin from admin where id_akun = {$_SESSION['user_id']}");
 
 if (!$admin_data or mysqli_num_rows($admin_data) < 1) {
@@ -43,12 +43,10 @@ if (isset($_GET['id']) and isset($_GET['role'])) {
       }
     }
   } else if ($_GET['role'] == 1) {
-    if ($result = $_db->query("SELECT id_akun as id FROM pengguna where id_admin = '{$_GET['id']}'")) {
+    if ($result = $_db->query("SELECT id_akun as id FROM pengguna where id_pengguna = '{$_GET['id']}'")) {
       $id_akun = $result->fetch_array()['id'];
-      $res1 = $_db->query("DELETE FROM profil WHERE id_pengguna = {$_GET['id']}");
-      $res2 = $_db->query("DELETE FROM pengguna WHERE id_pengguna = {$_GET['id']}");
-      $res3 = $_db->query("DELETE FROM akun WHERE id_akun = {$id_akun}");
-      if ($res1 and $res2 and $res3) {
+      $res = $_db->query("DELETE FROM akun WHERE id_akun = {$id_akun}");
+      if ($res) {
         $response = [
           "error" => false,
           "message" => "gold"
@@ -67,7 +65,7 @@ if (isset($_GET['id']) and isset($_GET['role'])) {
     }
     $response = [
       "error" => true,
-      "message" => "gold"
+      "message" => "gold " . $_db->error
     ];
     http_response_code(500);
     echo json_encode($response);
